@@ -1,0 +1,21 @@
+id,first_name,last_name,email,type,expiry
+S001,Alice,Johnson,alice.johnson@university.edu,STUDENT,2027-06-30
+S002,Brian,Kim,brian.kim@university.edu,STUDENT,2027-06-30
+S003,Carmen,Rivera,carmen.rivera@university.edu,STUDENT,2026-12-31
+S004,David,Chen,david.chen@university.edu,STUDENT,2026-12-31
+S005,Elena,Petrova,elena.petrova@university.edu,STUDENT,2027-06-30
+S006,Felix,Okafor,felix.okafor@university.edu,STUDENT,2026-06-30
+S007,Grace,Thompson,grace.thompson@university.edu,STUDENT,2027-12-31
+S008,Hassan,Al-Rashid,hassan.alrashid@university.edu,STUDENT,2027-06-30
+F001,Dr. Sarah,Mitchell,sarah.mitchell@faculty.edu,FACULTY,2028-12-31
+F002,Prof. James,Nakamura,james.nakamura@faculty.edu,FACULTY,2028-12-31
+F003,Dr. Linda,Osei,linda.osei@faculty.edu,FACULTY,2029-06-30
+F004,Prof. Marcus,Webb,marcus.webb@faculty.edu,FACULTY,2028-06-30
+N001,Dorothy,Hayes,dorothy.hayes@city.gov,SENIOR,2026-09-30
+N002,Harold,Vance,harold.vance@retired.net,SENIOR,2026-12-31
+N003,Mabel,Cooper,mabel.cooper@email.com,SENIOR,2027-03-31
+G001,Tom,Baker,tom.baker@gmail.com,GUEST,2026-06-01
+G002,Nina,Patel,nina.patel@gmail.com,GUEST,2026-05-15
+G003,Omar,Khalil,omar.khalil@outlook.com,GUEST,2026-07-01
+G004,Priya,Sharma,priya.sharma@hotmail.com,GUEST,2026-08-31
+G005,Liam,O'Brien,liam.obrien@email.ie,GUEST,2026-06-30
