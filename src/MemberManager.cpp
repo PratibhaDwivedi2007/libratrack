@@ -14,7 +14,7 @@ bool MemberManager::removeMember(const std::string& id) {
 }
 
 Member* MemberManager::findByID(const std::string& id) {
-    for (size_t i = 1; i < members_.size(); ++i) {
+    for (size_t i = 0; i < members_.size(); ++i) {
         if (members_[i].getID() == id) return &members_[i];
     }
     return nullptr;
