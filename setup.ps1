@@ -19,10 +19,19 @@ Write-Host ""
 function Update-SessionPath {
     $env:PATH = [System.Environment]::GetEnvironmentVariable("PATH", "Machine") + ";" +
                 [System.Environment]::GetEnvironmentVariable("PATH", "User")
-    # Also inject MSYS2 MinGW64 bin if it exists but is not in PATH
-    foreach ($msysGcc in @("C:\msys64\mingw64\bin", "$env:SystemDrive\msys64\mingw64\bin")) {
-        if ((Test-Path $msysGcc) -and ($env:PATH -notlike "*$msysGcc*")) {
-            $env:PATH = "$msysGcc;$env:PATH"
+    # Probe well-known install locations that may not be in registry PATH yet
+    $knownPaths = @(
+        "$env:ProgramFiles\CMake\bin",
+        "${env:ProgramFiles(x86)}\CMake\bin",
+        "$env:ProgramFiles\Git\cmd",
+        "$env:ProgramFiles\Git\bin",
+        "$env:ProgramFiles\LLVM\bin",
+        "C:\msys64\mingw64\bin",
+        "$env:SystemDrive\msys64\mingw64\bin"
+    )
+    foreach ($p in $knownPaths) {
+        if ((Test-Path $p) -and ($env:PATH -notlike "*$p*")) {
+            $env:PATH = "$p;$env:PATH"
         }
     }
 }
@@ -38,20 +47,6 @@ function Install-WingetPackage {
 
     # Refresh PATH so newly installed tools are visible
     Update-SessionPath
-
-    # Also probe common install locations for tools that don't update PATH immediately
-    $extraPaths = @(
-        "$env:ProgramFiles\CMake\bin",
-        "$env:ProgramFiles\Git\cmd",
-        "$env:ProgramFiles\Git\bin",
-        "$env:ProgramFiles\LLVM\bin",
-        "$env:ProgramFiles(x86)\CMake\bin"
-    )
-    foreach ($p in $extraPaths) {
-        if ((Test-Path $p) -and ($env:PATH -notlike "*$p*")) {
-            $env:PATH = "$p;$env:PATH"
-        }
-    }
 
     if (!(Get-Command $Command -ErrorAction SilentlyContinue)) {
         Write-Host "  [X] $Name was not found after install attempt." -ForegroundColor Red
