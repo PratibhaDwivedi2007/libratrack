@@ -19,10 +19,13 @@ LibraTrack handles book cataloguing, member management, loan tracking, fine calc
 
 **Windows (PowerShell):**
 ```powershell
-# 1. One-time setup
+# 1.
+Set-ExecutionPolicy -Scope CurrentUser RemoteSigned
+
+# 2. One-time setup
 .\setup.ps1
 
-# 2. After fixing a bug
+# 3. After fixing a bug
 .\check.ps1 <issue-number>
 ```
 
